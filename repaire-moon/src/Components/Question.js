@@ -73,6 +73,7 @@ const Form = styled.form`
         color: white;
         background-color: black;
         font-size: 16px;
+        cursor: pointer;
     }    
     
 `;
@@ -103,7 +104,7 @@ function Question() {
 
     return (
         <>
-            <QuestionBg>
+            <QuestionBg >
                 <img src={footerImg}></img>
                 <ContentWrap>
                     <h1>오시는 길</h1>

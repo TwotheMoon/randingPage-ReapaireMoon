@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useViewportScroll } from "framer-motion";
 
 import Header from "./Components/Header";
 import Service from "./Components/Service";
@@ -8,7 +9,7 @@ import Showcase from "./Components/Showcase";
 import bgImg01 from "./img/mainBg01.jpg";
 import bgImg02 from "./img/mainBg02.jpg";
 import About from "./Components/About";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Question from "./Components/Question";
 
 const Section = styled.div`
@@ -39,6 +40,10 @@ const BgImg2 = styled.div`
   background-attachment: fixed;
   background-position: center center;
 `;
+const RefWrap = styled.div`
+  position: relative;
+  z-index: -99;
+`;
 
 function App() {
   const [scrollIndex, setScrollIndex] = useState(1);
@@ -47,6 +52,7 @@ function App() {
   const showcaseRef = useRef(null);
   const aboutRef = useRef(null);
   const questionRef = useRef(null);
+  const { scrollY } = useViewportScroll();
   const onTitleClick = () => {
     titleRef.current.scrollIntoView({ behavior: 'smooth' });
     setScrollIndex(1);
@@ -67,26 +73,41 @@ function App() {
     questionRef.current.scrollIntoView({ behavior: 'smooth' });
     setScrollIndex(5);
   }
+  useEffect(() => {
+    scrollY.onChange(() => {
+      if (scrollY.get() <= 900) {
+        setScrollIndex(1);
+      } else if (scrollY.get() >= 901 && scrollY.get() <= 1500) {
+        setScrollIndex(2);
+      } else if (scrollY.get() >= 1501 && scrollY.get() <= 2400) {
+        setScrollIndex(3);
+      } else if (scrollY.get() >= 2401 && scrollY.get() <= 3700) {
+        setScrollIndex(4);
+      } else {
+        setScrollIndex(5);
+      }
+    })
+  }, [])
   return (
     <Section>
-      <Header onNavClick={{ onTitleClick, onServiceClick, onShowcaseClick, onAboutClick, onQuestionClick }} scrollIndex={scrollIndex} />
+      <Header onNavClick={{ onTitleClick, onServiceClick, onShowcaseClick, onAboutClick, onQuestionClick, }} scrollIndex={scrollIndex} />
       <BgImg1 />
-      <div ref={titleRef}>
+      <RefWrap ref={titleRef}>
         <Title />
-      </div>
-      <div ref={serviceRef}>
+      </RefWrap>
+      <RefWrap ref={serviceRef}>
         <Service />
-      </div>
-      <div ref={showcaseRef}>
+      </RefWrap>
+      <RefWrap ref={showcaseRef}>
         <Showcase />
-      </div>
-      <div ref={aboutRef}>
+      </RefWrap>
+      <RefWrap ref={aboutRef}>
         <About />
-      </div>
+      </RefWrap>
       <BgImg2 />
-      <div ref={questionRef}>
+      <RefWrap ref={questionRef}>
         <Question />
-      </div>
+      </RefWrap>
     </Section>
   );
 }
