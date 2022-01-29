@@ -26,7 +26,7 @@ const BgImg1 = styled.div`
   background-position: center center;
 `;
 const BgImg2 = styled.div`
-  margin-top: -1700px;
+  margin-top: -2000px;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -39,8 +39,6 @@ const BgImg2 = styled.div`
   background-position: center center;
 `;
 
-
-
 function App() {
   return (
     <Section>
@@ -51,7 +49,6 @@ function App() {
       <Showcase />
       <About />
       <BgImg2 />
-
     </Section>
   );
 }
