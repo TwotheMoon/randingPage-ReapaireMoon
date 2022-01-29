@@ -8,6 +8,8 @@ import Showcase from "./Components/Showcase";
 import bgImg01 from "./img/mainBg01.jpg";
 import bgImg02 from "./img/mainBg02.jpg";
 import About from "./Components/About";
+import { useRef, useState } from "react";
+import Question from "./Components/Question";
 
 const Section = styled.div`
   position: relative;
@@ -26,7 +28,6 @@ const BgImg1 = styled.div`
   background-position: center center;
 `;
 const BgImg2 = styled.div`
-  margin-top: -2000px;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -40,15 +41,52 @@ const BgImg2 = styled.div`
 `;
 
 function App() {
+  const [scrollIndex, setScrollIndex] = useState(1);
+  const titleRef = useRef(null);
+  const serviceRef = useRef(null);
+  const showcaseRef = useRef(null);
+  const aboutRef = useRef(null);
+  const questionRef = useRef(null);
+  const onTitleClick = () => {
+    titleRef.current.scrollIntoView({ behavior: 'smooth' });
+    setScrollIndex(1);
+  }
+  const onServiceClick = () => {
+    serviceRef.current.scrollIntoView({ behavior: 'smooth' });
+    setScrollIndex(2);
+  }
+  const onShowcaseClick = () => {
+    showcaseRef.current.scrollIntoView({ behavior: 'smooth' });
+    setScrollIndex(3);
+  }
+  const onAboutClick = () => {
+    aboutRef.current.scrollIntoView({ behavior: 'smooth' });
+    setScrollIndex(4);
+  }
+  const onQuestionClick = () => {
+    questionRef.current.scrollIntoView({ behavior: 'smooth' });
+    setScrollIndex(5);
+  }
   return (
     <Section>
-      <Header />
+      <Header onNavClick={{ onTitleClick, onServiceClick, onShowcaseClick, onAboutClick, onQuestionClick }} scrollIndex={scrollIndex} />
       <BgImg1 />
-      <Title />
-      <Service />
-      <Showcase />
-      <About />
+      <div ref={titleRef}>
+        <Title />
+      </div>
+      <div ref={serviceRef}>
+        <Service />
+      </div>
+      <div ref={showcaseRef}>
+        <Showcase />
+      </div>
+      <div ref={aboutRef}>
+        <About />
+      </div>
       <BgImg2 />
+      <div ref={questionRef}>
+        <Question />
+      </div>
     </Section>
   );
 }
