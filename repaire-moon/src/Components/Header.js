@@ -78,9 +78,6 @@ function Header({ onNavClick, scrollIndex, clickBooking }) {
                         <Circle layoutId="circle"></Circle>
                     }
                 </Li>
-                <Li onClick={clickBooking}>
-                    예약
-                </Li>
             </Ul>
         </Nav >
     );

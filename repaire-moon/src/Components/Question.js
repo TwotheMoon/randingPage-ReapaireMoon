@@ -144,9 +144,15 @@ function Question() {
             </QuestionBg>
             <Footer>
                 <SnsLogoWrap>
-                    <SnsLogoImg src={facebookLogo} />
-                    <SnsLogoImg src={pinLogo} />
-                    <SnsLogoImg src={instaLogo} />
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <SnsLogoImg src={facebookLogo} />
+                    </a>
+                    <a href="https://www.pinterest.co.kr/" target="_blank">
+                        <SnsLogoImg src={pinLogo} />
+                    </a>
+                    <a href="https://www.instagram.com/?hl=ko" target="_blank">
+                        <SnsLogoImg src={instaLogo} />
+                    </a>
                 </SnsLogoWrap>
                 <span>&copy; 제작된 본 홈페이지에 대한 모든 권리는 MOON&REPAIR에 귀속됩니다.</span>
             </Footer>
