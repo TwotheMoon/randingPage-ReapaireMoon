@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { snsOverlayState } from "../atoms";
 
 const ImgWrap = styled(motion.div)`
     width: 433px;
@@ -79,42 +81,45 @@ const ArrowIcon = styled.div`
         }
     }
 `;
+
 function Boxs({ img, infoTitle, infoSub }) {
     const [isHovering, setIsHovering] = useState(false);
-    const [clicked, setClicked] = useState(false);
-    const onHeartClicked = () => setClicked((prev) => !prev);
-    console.log(clicked);
+    const [heartClicked, setHeartClicked] = useState(false);
+    const [snsLayout ,setSnsLayout] = useRecoilState(snsOverlayState); 
+    const onHeartClicked = () => setHeartClicked((prev) => !prev);
+    const onArrowClicked = () => setSnsLayout(true);
     return (
         <>
             <ImgWrap
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
                 img={img}
-            >
+                >
                 <Overlay whileHover={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
                     <AnimatePresence>
                         {isHovering ? (
                             <InfoWrap
-                                variants={infoVariants}
-                                initial="hide"
-                                animate="visible"
-                                exit="exit"
+                            variants={infoVariants}
+                            initial="hide"
+                            animate="visible"
+                            exit="exit"
                             >
                                 <InfoTitle >{infoTitle}</InfoTitle>
                                 <InfoSubText>{infoSub}</InfoSubText>
                                 <IconWrap>
                                     <HeartIcon>
-                                    <Svg onClick={onHeartClicked} clicked={clicked} viewBox="0 0 18 15" width="21" height="21"><path d="M9,15c-0.1,0-0.2,0-0.3-0.1c-0.2-0.2-6-3.9-7.8-7C0,6.3-0.3,4.5,0.3,3C0.8,1.7,1.7,0.7,3,0.3	C5.3-0.5,7.7,0.7,9,2.4c1.4-1.9,4-2.9,6.1-2.1c1.2,0.5,2.2,1.4,2.6,2.6c0.6,1.5,0.3,3.3-0.6,5c-1.8,3.3-7.5,6.8-7.8,7	C9.2,15,9.1,15,9,15z"></path></Svg>
+                                    <Svg onClick={onHeartClicked} clicked={heartClicked} viewBox="0 0 18 15" width="21" height="21"><path d="M9,15c-0.1,0-0.2,0-0.3-0.1c-0.2-0.2-6-3.9-7.8-7C0,6.3-0.3,4.5,0.3,3C0.8,1.7,1.7,0.7,3,0.3	C5.3-0.5,7.7,0.7,9,2.4c1.4-1.9,4-2.9,6.1-2.1c1.2,0.5,2.2,1.4,2.6,2.6c0.6,1.5,0.3,3.3-0.6,5c-1.8,3.3-7.5,6.8-7.8,7	C9.2,15,9.1,15,9,15z"></path></Svg>
                                     </HeartIcon>
-                                    <ArrowIcon>
+                                    <ArrowIcon onClick={onArrowClicked}>
                                         <svg viewBox="0 0 18 17" width="20" height="20">
                                             <path d="M12.221 2.361l4.453 4.722-4.453 4.723v-1.7l-.758-.19a9.37 9.37 0 0 0-2.274-.283c-2.936 0-5.684 1.228-7.673 3.211 2.179-8.31 8.905-8.783 9.758-8.783h.947v-1.7zm-.947.756C9.189 3.21.664 4.627 0 17c1.516-3.778 5.116-6.328 9.19-6.328.663 0 1.326.095 2.084.19v3.305L18 7.083 11.274 0v3.117z"></path>
                                         </svg>
+                                        
                                     </ArrowIcon>
                                 </IconWrap>
                             </InfoWrap>
                         ) : null
-                        }
+                    }
                     </AnimatePresence>
                 </Overlay>
             </ImgWrap>

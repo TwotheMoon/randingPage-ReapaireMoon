@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { useViewportScroll } from "framer-motion";
+import { AnimatePresence, motion, useViewportScroll } from "framer-motion";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
 import Header from "./Components/Header";
 import Service from "./Components/Service";
@@ -11,6 +12,7 @@ import bgImg02 from "./img/mainBg02.jpg";
 import About from "./Components/About";
 import { useEffect, useRef, useState } from "react";
 import Question from "./Components/Question";
+import { snsOverlayState } from "./atoms";
 
 const Section = styled.div`
   position: relative;
@@ -44,6 +46,25 @@ const RefWrap = styled.div`
   position: relative;
   z-index: -99;
 `;
+const SnsOverlay = styled(motion.div)`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 97;
+`;
+const SnsPopUpBox = styled(motion.div)`
+   width: 580px;
+    height: 250px;
+    background-color: white;
+    position: fixed;
+    z-index: 99;
+    margin: 0 auto;
+    left:0;
+    right:0;
+    top: 40%;
+`;
 
 function App() {
   const [scrollIndex, setScrollIndex] = useState(1);
@@ -53,6 +74,9 @@ function App() {
   const aboutRef = useRef(null);
   const questionRef = useRef(null);
   const { scrollY } = useViewportScroll();
+  const setSnsLayout = useSetRecoilState(snsOverlayState);
+  const snsLayout = useRecoilValue(snsOverlayState);
+  const onClick = () => setSnsLayout(false);
   const onTitleClick = () => {
     titleRef.current.scrollIntoView({ behavior: 'smooth' });
     setScrollIndex(1);
@@ -87,9 +111,34 @@ function App() {
         setScrollIndex(5);
       }
     })
-  }, [])
+  }, []);
+
   return (
     <Section>
+      <AnimatePresence>
+        {snsLayout ?
+          <>
+            <SnsOverlay
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+
+            <SnsPopUpBox
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 30, opacity: 0 }}
+              transition={{ duration: 0.5, type: "spring" }}
+            >
+              <div>
+                테스트
+                <button onClick={onClick}>닫기</button>
+              </div>
+            </SnsPopUpBox>
+          </>
+          : null
+        }
+      </AnimatePresence>
       <Header onNavClick={{ onTitleClick, onServiceClick, onShowcaseClick, onAboutClick, onQuestionClick, }} scrollIndex={scrollIndex} />
       <BgImg1 />
       <RefWrap ref={titleRef}>

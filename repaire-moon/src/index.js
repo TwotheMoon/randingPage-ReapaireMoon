@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { RecoilRoot } from 'recoil';
 import '@fortawesome/fontawesome-free/js/all.js';
 
 const GlobalStyle = createGlobalStyle`
@@ -80,10 +80,10 @@ html, body, div, span, applet, object, iframe,
 
 ReactDOM.render(
   <React.StrictMode>
+    <RecoilRoot>
     <GlobalStyle />
-    <Router>
       <App />
-    </Router>
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root')
 );
