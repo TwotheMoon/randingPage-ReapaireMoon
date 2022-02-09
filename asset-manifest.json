@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.js": "/randingPage-ReapaireMoon/static/js/main.ee0083fe.js",
+    "static/media/mainBg01.jpg": "/randingPage-ReapaireMoon/static/media/mainBg01.02be818e5a104ffee822.jpg",
+    "static/media/aboutBgImg.jpg": "/randingPage-ReapaireMoon/static/media/aboutBgImg.8a6df9eff957dde580a1.jpg",
+    "static/media/showcaseImg06.jpg": "/randingPage-ReapaireMoon/static/media/showcaseImg06.810fe554d9dbb5f55034.jpg",
+    "static/media/showcaseImg04.jpg": "/randingPage-ReapaireMoon/static/media/showcaseImg04.8748966d0196e9452736.jpg",
+    "static/media/mainBg02.jpg": "/randingPage-ReapaireMoon/static/media/mainBg02.7f056081955143e5a6f9.jpg",
+    "static/media/showcaseImg01.jpg": "/randingPage-ReapaireMoon/static/media/showcaseImg01.21a3eb19db9ec03a16ed.jpg",
+    "static/media/showcaseImg03.jpg": "/randingPage-ReapaireMoon/static/media/showcaseImg03.8b35588ff49f9f01a7f1.jpg",
+    "static/media/serviceBgImg.jpg": "/randingPage-ReapaireMoon/static/media/serviceBgImg.9d582963ce69c01c880f.jpg",
+    "static/media/showcaseImg05.jpg": "/randingPage-ReapaireMoon/static/media/showcaseImg05.071bb498547a1a111b15.jpg",
+    "static/media/showcaseImg02.jpg": "/randingPage-ReapaireMoon/static/media/showcaseImg02.3b0af49238e1b565ad89.jpg",
+    "static/media/footerImg.png": "/randingPage-ReapaireMoon/static/media/footerImg.2a1c3a4114ac623bccc2.png",
+    "static/media/instalogo.webp": "/randingPage-ReapaireMoon/static/media/instalogo.3722d2d2fca81366ca07.webp",
+    "static/media/pinLogo.webp": "/randingPage-ReapaireMoon/static/media/pinLogo.dcd8b2586610aebc0c18.webp",
+    "static/media/facebookLogo.webp": "/randingPage-ReapaireMoon/static/media/facebookLogo.980ebe699c37dc73cec5.webp",
+    "index.html": "/randingPage-ReapaireMoon/index.html",
+    "main.ee0083fe.js.map": "/randingPage-ReapaireMoon/static/js/main.ee0083fe.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.ee0083fe.js"
+  ]
+}
