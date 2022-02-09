@@ -100,7 +100,6 @@ function Boxs({ img, infoTitle, infoSub }) {
     const onHeartClicked = () => setHeartClicked((prev) => !prev);
     const onArrowClicked = () => setSnsLayout(true);
     const onBoxLayout = () => setBoxLayout({ url: img, title: infoTitle, text: infoSub });
-    console.log(boxLayout);
 
     return (
         <>

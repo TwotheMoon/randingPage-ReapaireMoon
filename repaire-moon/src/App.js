@@ -44,7 +44,7 @@ const BgImg2 = styled.div`
 `;
 const RefWrap = styled.div`
   position: relative;
-  z-index: -99;
+  z-index: 0;
 `;
 const SnsOverlay = styled(motion.div)`
     position: absolute;

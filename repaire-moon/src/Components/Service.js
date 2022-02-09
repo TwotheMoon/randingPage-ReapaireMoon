@@ -10,18 +10,18 @@ const ServiceWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-background-image: url(${serviceBgImg});
-background-size: cover;
-  & > h1{
-    padding-top: 130px;
-    font-size: 32px;
-  }
-  hr{
-    margin-top: 20px;
-    width: 40px;
-    height: 4px;
-    background-color: white;
-  }
+    background-image: url(${serviceBgImg});
+    background-size: cover;
+    & > h1{
+        padding-top: 130px;
+        font-size: 32px;
+    }
+    hr{
+        margin-top: 20px;
+        width: 40px;
+        height: 4px;
+        background-color: white;
+    }
 `;
 const ServiceIconWrap = styled.div`
   width: 700px;

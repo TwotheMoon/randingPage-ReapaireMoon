@@ -32,6 +32,7 @@ const LogoCircle = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+  
 `;
 const LogoLine = styled.div`
   width: 30px;
@@ -46,16 +47,17 @@ const LogoLine = styled.div`
     right: 0;
     margin-right: 10px;
     }
+    
 `;
 const Logo = styled.svg`
   width: 80px;
   fill: white;
-`
-const SnsLogoWrap = styled.div`
-margin-top: 500px;
-margin-bottom: 60px;
-width: 190px;
 `;
+const SnsLogoWrap = styled.div`
+  margin-top: 500px;
+  margin-bottom: 60px;
+  width: 190px;  
+  `;
 const SnsLogoImg = styled.img`
   margin: 0px 10px;
   cursor: pointer;
@@ -76,6 +78,7 @@ function Title() {
       </LogoCircle>
       <h1 className="LogoTitle">MOOM & REPAIR</h1>
       <span>일렉기타 수리의 모든 것!</span>
+
       <SnsLogoWrap>
         <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
           <SnsLogoImg src={facebookLogo} />
