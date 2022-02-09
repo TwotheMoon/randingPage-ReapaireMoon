@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import styled from "styled-components";
 
 import showcaseImg01 from "../img/showcaseImg01.jpg";
@@ -38,7 +37,9 @@ const ContentWrap = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 2fr);
 `;
-
+console.log(showcaseImg01);
+console.log(showcaseImg02);
+console.log(showcaseImg03);
 
 function Showcase() {
 

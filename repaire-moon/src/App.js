@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { AnimatePresence, motion, useViewportScroll } from "framer-motion";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
 import Header from "./Components/Header";
 import Service from "./Components/Service";
@@ -12,7 +12,7 @@ import bgImg02 from "./img/mainBg02.jpg";
 import About from "./Components/About";
 import { useEffect, useRef, useState } from "react";
 import Question from "./Components/Question";
-import { snsOverlayState } from "./atoms";
+import { boxsClickState, snsOverlayState } from "./atoms";
 
 const Section = styled.div`
   position: relative;
@@ -130,6 +130,70 @@ const CopyMessage = styled(motion.div)`
   font-weight: bold;
 
   `;
+const DetailBox = styled(motion.div)`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  margin-top: 60px;
+`;
+const BtnWrap = styled.div`
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  `;
+const ContentWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  `;
+const DetailImg = styled.img`
+    min-width: 600px;
+    min-height: 380px;
+    max-width: 1030px;
+    max-height: 680px;
+    margin-right: 50px;
+  `;
+const TextWrap = styled.div`
+  margin-left: 50px;
+  text-align: center;
+  font-family: 'GmarketSansMedium';
+`;
+const DetailTitle = styled.h1`
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+`;
+const DetailText = styled.p``;
+const HeartIcon = styled.div`
+    margin-left: 30px;
+    cursor: pointer;
+`;
+const Svg = styled.svg`
+    stroke: ${(props) => props.clicked ? "red" : "black"};
+    fill: ${(props) => props.clicked ? "red" : "white"};
+    &:hover{
+        stroke: ${(props) => props.clicked ? "red" : "rgba(0, 0, 0, 0.6)"} ;
+    }
+`;
+const ArrowIcon = styled.div`
+    margin-left: 30px;
+    svg{
+        fill: black;
+        cursor: pointer;
+        &:hover{
+            stroke: rgba(0, 0, 0, 0.4);
+        }
+    }
+`;
+const HeartNum = styled.div`
+  float: right;
+  margin-left: 10px;
+  transition: 0.3s;
+  opacity: ${props => props.heartClicked ? 1 : 0};
+`;
 
 function App() {
   const [scrollIndex, setScrollIndex] = useState(1);
@@ -142,12 +206,19 @@ function App() {
   const setSnsLayout = useSetRecoilState(snsOverlayState);
   const snsLayout = useRecoilValue(snsOverlayState);
   const [copy, setCopy] = useState(false);
+  const [boxLayout, setBoxLayout] = useRecoilState(boxsClickState);
   const copyRef = useRef();
+  const [heartClicked, setHeartClicked] = useState(false);
+  const onDetailBtnClicked = () => setBoxLayout({ url: "" });
+  const onHeartClicked = () => setHeartClicked((prev) => !prev);
+  const onArrowClicked = () => setSnsLayout(true);
+  const noCopy = () => setCopy(false);
   const copyClick = () => {
     const copyText = copyRef.current;
     copyText.select();
     document.execCommand("copy");
     setCopy(true);
+    setTimeout(noCopy, 1000);
   }
   const onClick = () => setSnsLayout(false);
   const onTitleClick = () => {
@@ -236,6 +307,42 @@ function App() {
           : null
         }
       </AnimatePresence>
+
+      <AnimatePresence>
+        {!boxLayout.url == '' ?
+          <DetailBox
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <BtnWrap>
+              <HeartIcon>
+                <Svg onClick={onHeartClicked} clicked={heartClicked} viewBox="0 0 18 15" width="21" height="21"><path d="M9,15c-0.1,0-0.2,0-0.3-0.1c-0.2-0.2-6-3.9-7.8-7C0,6.3-0.3,4.5,0.3,3C0.8,1.7,1.7,0.7,3,0.3	C5.3-0.5,7.7,0.7,9,2.4c1.4-1.9,4-2.9,6.1-2.1c1.2,0.5,2.2,1.4,2.6,2.6c0.6,1.5,0.3,3.3-0.6,5c-1.8,3.3-7.5,6.8-7.8,7	C9.2,15,9.1,15,9,15z"></path></Svg>
+                <HeartNum heartClicked={heartClicked}>1</HeartNum>
+              </HeartIcon>
+              <ArrowIcon onClick={onArrowClicked}>
+                <svg viewBox="0 0 18 17" width="20" height="20">
+                  <path d="M12.221 2.361l4.453 4.722-4.453 4.723v-1.7l-.758-.19a9.37 9.37 0 0 0-2.274-.283c-2.936 0-5.684 1.228-7.673 3.211 2.179-8.31 8.905-8.783 9.758-8.783h.947v-1.7zm-.947.756C9.189 3.21.664 4.627 0 17c1.516-3.778 5.116-6.328 9.19-6.328.663 0 1.326.095 2.084.19v3.305L18 7.083 11.274 0v3.117z"></path>
+                </svg>
+              </ArrowIcon>
+              <ExitBtn>
+                <IconsExit onClick={onDetailBtnClicked} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M376.6 427.5c11.31 13.58 9.484 33.75-4.094 45.06c-5.984 4.984-13.25 7.422-20.47 7.422c-9.172 0-18.27-3.922-24.59-11.52L192 305.1l-135.4 162.5c-6.328 7.594-15.42 11.52-24.59 11.52c-7.219 0-14.48-2.438-20.47-7.422c-13.58-11.31-15.41-31.48-4.094-45.06l142.9-171.5L7.422 84.5C-3.891 70.92-2.063 50.75 11.52 39.44c13.56-11.34 33.73-9.516 45.06 4.094L192 206l135.4-162.5c11.3-13.58 31.48-15.42 45.06-4.094c13.58 11.31 15.41 31.48 4.094 45.06l-142.9 171.5L376.6 427.5z" /></IconsExit>
+              </ExitBtn>
+            </BtnWrap>
+            <ContentWrap>
+              <DetailImg src={boxLayout.url}></DetailImg>
+              <TextWrap>
+                <DetailTitle>{boxLayout.title}</DetailTitle>
+                <DetailText>{boxLayout.text}</DetailText>
+              </TextWrap>
+            </ContentWrap>
+          </DetailBox>
+          :
+          null
+        }
+      </AnimatePresence>
+
       <Header onNavClick={{ onTitleClick, onServiceClick, onShowcaseClick, onAboutClick, onQuestionClick, }} scrollIndex={scrollIndex} />
       <BgImg1 />
       <RefWrap ref={titleRef}>
@@ -254,7 +361,7 @@ function App() {
       <RefWrap ref={questionRef}>
         <Question />
       </RefWrap>
-    </Section>
+    </Section >
   );
 }
 
