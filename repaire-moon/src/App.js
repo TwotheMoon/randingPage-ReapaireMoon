@@ -29,6 +29,7 @@ const BgImg1 = styled.div`
   background-image: url(${bgImg01});
   background-attachment: fixed;
   background-position: center center;
+  transform: scale(1.1);
 `;
 const BgImg2 = styled.div`
   width: 100%;
@@ -41,6 +42,7 @@ const BgImg2 = styled.div`
   background-image: url(${bgImg02});
   background-attachment: fixed;
   background-position: center center;
+  transform: scale(1.1);
 `;
 const RefWrap = styled.div`
   position: relative;
