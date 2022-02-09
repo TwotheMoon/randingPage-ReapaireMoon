@@ -136,6 +136,7 @@ const DetailBox = styled(motion.div)`
   height: 100%;
   background-color: white;
   margin-top: 60px;
+  z-index: 90;
 `;
 const BtnWrap = styled.div`
   width: 100%;
