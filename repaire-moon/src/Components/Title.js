@@ -77,13 +77,13 @@ function Title() {
       <h1 className="LogoTitle">MOOM & REPAIR</h1>
       <span>일렉기타 수리의 모든 것!</span>
       <SnsLogoWrap>
-        <a href="https://www.facebook.com/" target="_blank">
+        <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
           <SnsLogoImg src={facebookLogo} />
         </a>
-        <a href="https://www.pinterest.co.kr/" target="_blank">
+        <a href="https://www.pinterest.co.kr/" target="_blank" rel="noreferrer">
           <SnsLogoImg src={pinLogo} />
         </a>
-        <a href="https://www.instagram.com/?hl=ko" target="_blank">
+        <a href="https://www.instagram.com/?hl=ko" target="_blank" rel="noreferrer">
           <SnsLogoImg src={instaLogo} />
         </a>
       </SnsLogoWrap>

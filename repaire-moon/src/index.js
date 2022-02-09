@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { RecoilRoot } from 'recoil';
-import '@fortawesome/fontawesome-free/js/all.js';
+import '@fortawesome/fontawesome-free/js/all.js'
 
 const GlobalStyle = createGlobalStyle`
 
@@ -81,7 +81,7 @@ html, body, div, span, applet, object, iframe,
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
-    <GlobalStyle />
+      <GlobalStyle />
       <App />
     </RecoilRoot>
   </React.StrictMode>,
