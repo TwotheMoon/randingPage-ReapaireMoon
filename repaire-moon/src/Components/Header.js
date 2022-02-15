@@ -48,7 +48,7 @@ const Circle = styled(motion.div)`
     bottom: -10px;
     `;
 
-function Header({ onNavClick, scrollIndex, clickBooking }) {
+function Header({ onNavClick, scrollIndex }) {
 
     return (
         <Nav>
