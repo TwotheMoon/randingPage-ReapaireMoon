@@ -15,6 +15,10 @@ const ShowcaseWrap = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media screen and (max-width: 500px){
+        height: 100%;
+    }
+    
 `;
 const TitleWrap = styled.div`
     text-align: center;
@@ -31,11 +35,16 @@ const TitleWrap = styled.div`
 `;
 const ContentWrap = styled.div`
     margin-top: 80px;
-    width: 1300px;
+    width: 100%;
     height: 650px;
     background-color: black;
     display: grid;
     grid-template-columns: repeat(3, 2fr);
+    @media screen and (max-width: 500px){
+        width: 100vw;
+        height: 100%;
+        grid-template-columns: repeat(1, 6fr);
+    }
 `;
 
 function Showcase() {

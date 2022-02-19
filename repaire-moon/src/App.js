@@ -17,6 +17,10 @@ import { boxsClickState, snsOverlayState } from "./atoms";
 const Section = styled.div`
   position: relative;
   height: 100vh;
+  overflow-x: hidden;
+  @media screen and (max-width:500px){
+    max-width: 500px;
+  }
 `;
 const BgImg1 = styled.div`
   width: 100%;
@@ -70,6 +74,9 @@ const SnsPopUpBox = styled(motion.div)`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @media screen and (max-width: 500px){
+      width: 100%;
+    }
 `;
 const ExitBtn = styled.div`
   color: black;
@@ -150,18 +157,30 @@ const ContentWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 900px){
+      flex-direction: column;
+    }
   `;
 const DetailImg = styled.img`
-    min-width: 600px;
-    min-height: 380px;
     max-width: 1030px;
+    min-width: 600px;
     max-height: 680px;
+    min-height: 380px;
     margin-right: 50px;
+    @media screen and (max-width: 900px){
+      width: 100%;
+      margin-right: 0px;
+    }
   `;
 const TextWrap = styled.div`
   margin-left: 50px;
   text-align: center;
   font-family: 'GmarketSansMedium';
+  @media screen and (max-width: 900px){
+      margin-top: 50px;
+      margin-left: 0px;
+    }
 `;
 const DetailTitle = styled.h1`
     font-size: 23px;

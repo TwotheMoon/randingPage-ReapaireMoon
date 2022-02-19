@@ -22,6 +22,10 @@ const ServiceWrap = styled.div`
         height: 4px;
         background-color: white;
     }
+    @media screen and (max-width: 500px){
+        height: 100%;
+        padding-bottom: 100px;
+    }
 `;
 const ServiceIconWrap = styled.div`
   width: 700px;
@@ -32,6 +36,10 @@ const ServiceIconWrap = styled.div`
     width: 120px;
     fill: white;
   }
+  @media screen and (max-width: 500px) {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
 
 `;
 const ContentWrap = styled.div`

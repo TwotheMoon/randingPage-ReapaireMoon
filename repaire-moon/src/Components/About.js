@@ -35,6 +35,9 @@ const Bg1ContentWrap = styled.div`
     font-weight: bold;
     margin-top: 30px;
     line-height: 1.4;
+    @media screen and (max-width: 500px){
+        font-size: 15px;
+    }
   }
 `;
 

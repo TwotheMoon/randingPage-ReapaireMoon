@@ -20,6 +20,10 @@ justify-content: center;
 img{
     width: 400px;
 }
+@media screen and (max-width: 500px){
+    height: 100%;
+    padding-top: 20px;
+}
 `;
 
 const ContentWrap = styled.div`
@@ -43,6 +47,10 @@ const ContentWrap = styled.div`
     font-family: 'GmarketSansLight';
     font-weight: bold;
   }
+  @media screen and (max-width: 500px){
+      height: 100%;
+      padding-bottom: 250px;
+  }
 `;
 const FormWrap = styled.div`
     width: 600px;
@@ -50,6 +58,12 @@ const FormWrap = styled.div`
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
+  @media screen and (max-width: 500px){
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 130px;
+  }
 `;
 const Info = styled.div`
 `;
@@ -75,7 +89,9 @@ const Form = styled.form`
         font-size: 16px;
         cursor: pointer;
     }    
-    
+    @media screen and (max-width: 500px){
+        margin-top: 50px;
+    }
 `;
 
 const Footer = styled.div`
@@ -90,6 +106,9 @@ const Footer = styled.div`
       margin-top: 15px;
       font-size: 13px;
       color: white;
+      @media screen and (max-width: 500px){
+          font-size: 10px;
+      }
   }
 `;
 const SnsLogoWrap = styled.div`

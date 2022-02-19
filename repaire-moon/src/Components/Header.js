@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { motion, useViewportScroll } from "framer-motion";
 
 const Nav = styled.div`
-width: 100%;
+width: 100vw;
 height: 60px;
 position: fixed;
 color: white;
@@ -10,6 +10,8 @@ background-color:#2F2E2E;
 display: flex;
 justify-content: center;
 z-index: 99;
+
+
 `;
 const Ul = styled.ul`
 width: 650px;
@@ -17,6 +19,10 @@ height: inherit;
 display: flex ;
 align-items: center;
 justify-content: space-between;
+@media screen and (max-width: 500px){
+   width: 100%;
+   justify-content: space-around;
+}
 `;
 
 const Li = styled.li`

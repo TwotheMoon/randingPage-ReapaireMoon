@@ -1,15 +1,20 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { boxsClickState, snsOverlayState } from "../atoms";
 
 const ImgWrap = styled(motion.div)`
-    width: 433px;
+    width: 100%;
     height: 325px;
     position: relative;
     background-size: cover;
     background-image: url(${(props) => props.img});
+    background-position: center center;
+    @media screen and (max-width: 500px){
+        max-width: 100vh;
+        margin-top: 20px;
+    }
 `;
 const Overlay = styled(motion.div)`
     background-color: rgba(0, 0, 0, 0);
@@ -95,7 +100,7 @@ const ClickedArea = styled(motion.div)`
 function Boxs({ img, infoTitle, infoSub }) {
     const [isHovering, setIsHovering] = useState(false);
     const [heartClicked, setHeartClicked] = useState(false);
-    const [boxLayout, setBoxLayout] = useRecoilState(boxsClickState);
+    const setBoxLayout = useSetRecoilState(boxsClickState);
     const setSnsLayout = useSetRecoilState(snsOverlayState);
     const onHeartClicked = () => setHeartClicked((prev) => !prev);
     const onArrowClicked = () => setSnsLayout(true);
