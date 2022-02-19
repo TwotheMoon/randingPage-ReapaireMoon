@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/randingPage-ReapaireMoon/static/js/main.012f284c.js",
+    "main.js": "/randingPage-ReapaireMoon/static/js/main.dd18ef62.js",
     "static/media/mainBg01.jpg": "/randingPage-ReapaireMoon/static/media/mainBg01.02be818e5a104ffee822.jpg",
     "static/media/aboutBgImg.jpg": "/randingPage-ReapaireMoon/static/media/aboutBgImg.8a6df9eff957dde580a1.jpg",
     "static/media/showcaseImg06.jpg": "/randingPage-ReapaireMoon/static/media/showcaseImg06.810fe554d9dbb5f55034.jpg",
@@ -16,9 +16,9 @@
     "static/media/pinLogo.webp": "/randingPage-ReapaireMoon/static/media/pinLogo.dcd8b2586610aebc0c18.webp",
     "static/media/facebookLogo.webp": "/randingPage-ReapaireMoon/static/media/facebookLogo.980ebe699c37dc73cec5.webp",
     "index.html": "/randingPage-ReapaireMoon/index.html",
-    "main.012f284c.js.map": "/randingPage-ReapaireMoon/static/js/main.012f284c.js.map"
+    "main.dd18ef62.js.map": "/randingPage-ReapaireMoon/static/js/main.dd18ef62.js.map"
   },
   "entrypoints": [
-    "static/js/main.012f284c.js"
+    "static/js/main.dd18ef62.js"
   ]
 }
