@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useEffect, useRef, useState } from "react";
+import { boxsClickState, snsOverlayState } from "./atoms";
 import { AnimatePresence, motion, useViewportScroll } from "framer-motion";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
@@ -10,14 +12,11 @@ import Showcase from "./Components/Showcase";
 import bgImg01 from "./img/mainBg01.jpg";
 import bgImg02 from "./img/mainBg02.jpg";
 import About from "./Components/About";
-import { useEffect, useRef, useState } from "react";
 import Question from "./Components/Question";
-import { boxsClickState, snsOverlayState } from "./atoms";
 
 const Section = styled.div`
   position: relative;
   height: 100vh;
-  overflow-x: hidden;
   @media screen and (max-width:500px){
     max-width: 500px;
   }
@@ -34,6 +33,9 @@ const BgImg1 = styled.div`
   background-attachment: fixed;
   background-position: center center;
   transform: scale(1.1);
+  @media screen and (max-width: 500px){
+    transform: scale(1);
+  }
 `;
 const BgImg2 = styled.div`
   width: 100%;
@@ -47,6 +49,9 @@ const BgImg2 = styled.div`
   background-attachment: fixed;
   background-position: center center;
   transform: scale(1.1);
+  @media screen and (max-width: 500px){
+    transform: scale(1);
+  }
 `;
 const RefWrap = styled.div`
   position: relative;
@@ -263,6 +268,7 @@ function App() {
     questionRef.current.scrollIntoView({ behavior: 'smooth' });
     setScrollIndex(5);
   }
+  console.log(scrollY.get());
   useEffect(() => {
     scrollY.onChange(() => {
       if (scrollY.get() <= 900) {
@@ -276,8 +282,9 @@ function App() {
       } else {
         setScrollIndex(5);
       }
-    })
+    });
   }, [scrollY]);
+
 
   return (
     <Section>

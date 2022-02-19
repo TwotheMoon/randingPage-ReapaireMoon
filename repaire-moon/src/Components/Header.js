@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { motion, useViewportScroll } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Nav = styled.div`
 width: 100vw;

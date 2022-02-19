@@ -19,6 +19,9 @@ align-items: center;
 justify-content: center;
 img{
     width: 400px;
+    @media screen and (max-width: 500px){
+        width: 350px;
+    }
 }
 @media screen and (max-width: 500px){
     height: 100%;
@@ -48,7 +51,8 @@ const ContentWrap = styled.div`
     font-weight: bold;
   }
   @media screen and (max-width: 500px){
-      height: 100%;
+    width: 100% ;
+    height: 100%;
       padding-bottom: 250px;
   }
 `;
@@ -63,6 +67,7 @@ const FormWrap = styled.div`
       justify-content: center;
       align-items: center;
       margin-top: 130px;
+      width: 100%;
   }
 `;
 const Info = styled.div`

@@ -28,15 +28,15 @@ const ServiceWrap = styled.div`
     }
 `;
 const ServiceIconWrap = styled.div`
-  width: 700px;
   display: flex;
   justify-content: space-between;
   svg{
-    margin-top: 50px;
-    width: 120px;
-    fill: white;
-  }
-  @media screen and (max-width: 500px) {
+      margin-top: 50px;
+      width: 120px;
+      fill: white;
+    }
+    @media screen and (max-width: 500px) {
+      width: 100%;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
